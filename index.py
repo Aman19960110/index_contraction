@@ -1,94 +1,75 @@
 import pandas as pd
-import numpy as np
 import yfinance as yf
-from datetime import datetime
+import numpy as np
 
-nifty50_2018 = ["ADANIPORTS", "AMBUJACEM", "ASIANPAINT", "AUROPHARMA", "AXISBANK",
-                "BAJAJ-AUTO", "BAJFINANCE", "BPCL", "BHARTIARTL", "INFRATEL",
-                "BOSCHLTD", "CIPLA", "COALINDIA", "DRREDDY", "EICHERMOT",
-                "GAIL", "HCLTECH", "HDFCBANK", "HEROMOTOCO", "HINDALCO",
-                "HINDUNILVR", "HDFC", "ITC", "ICICIBANK", "IBULHSGFIN",
-                "IOC", "INDUSINDBK", "INFY", "KOTAKBANK", "LT",
-                "LUPIN", "M&M", "MARUTI", "NTPC", "ONGC",
-                "POWERGRID", "RELIANCE", "SBIN", "SUNPHARMA", "TCS",
-                "TATAMOTORS", "TATASTEEL", "TECHM", "UPL", "ULTRACEMCO",
-                "VEDL", "WIPRO", "YESBANK", "ZEEL"]
+shareholding_pattern = pd.read_csv('fianl_df_normal_pivot.csv',index_col='report_date',parse_dates=True)
 
-START_DATE = "2018-01-01"
-BASE_VALUE = 1000
-REBAL_FREQ = "QE"
+shareholding_pattern = shareholding_pattern.fillna(0)
 
-def get_nearest_trading_date(df, date):
-    """Return nearest trading day from df.index to given date."""
-    return df.index[df.index.get_indexer([date], method='nearest')[0]]
+stocks = shareholding_pattern.columns.tolist()
+print(f"✅ Loaded {len(stocks)} stocks from file.")
 
-def get_nearest_sharesholding_date(start,end,df,date):
-    df = df.loc[start:end]
-    return df.index[df.index.get_indexer([date], method='nearest')[0]]
+start_date = shareholding_pattern.index.min() - pd.Timedelta(days=10)
+end_date = shareholding_pattern.index.max() +  pd.Timedelta(days=30)
 
-def build_quarterly_index(data, base_value=1000):
-    """
-    Build market-cap weighted index with quarterly rebalancing.
-    """
-    # Rebalance dates (end of each quarter)
-    rebal_dates = data.resample(REBAL_FREQ).last().index
-    index_values = pd.Series(index=data.index, dtype=float)
+ticker = [s + '.NS' for s in stocks]
+all_price = yf.download(ticker,start=start_date,end=end_date,auto_adjust=True)['Close']
+all_price.columns = [c.replace(".NS",'') for c in all_price.columns]
 
-    divisor = None
-    prev_index = None
+print("✅ Price data fetched successfully.")
 
-    for i, rebal_date in enumerate(rebal_dates):
-        # Determine start and end of the quarter
-        if i == 0:
-            start = data.index[0]
-        else:
-            start = rebal_dates[i - 1]
-        end = rebal_date
+quaterly_price = all_price.reindex(shareholding_pattern.index,method='ffill')
 
-        # Align start and end to nearest trading days
-        start = get_nearest_trading_date(data, start)
-        end = get_nearest_trading_date(data, end)
+market_caps = shareholding_pattern*quaterly_price
+print(market_caps)
 
-        # Get base prices
-        prices_start = data.loc[start]
-        shares_df = pd.read_csv('fianl_df_normal_pivot.csv',parse_dates=['report_date'],index_col='report_date')
-        nearest_shareholding_date = get_nearest_sharesholding_date(start,end,shares_df,start)
+weights_per_quarter = {}
+for date,row in market_caps.iterrows():
+    row = row.replace([np.inf, -np.inf], np.nan).fillna(0)
+    top20_caps = row.nlargest(20)
+    total = top20_caps.sum()
+    weights = top20_caps/total
+    weights_per_quarter[date]=weights
 
-        shares = shares_df.loc[nearest_shareholding_date]
-   
+# === Step 6: Build Index (Quarterly Rebalancing) ===
+index_series = pd.Series(dtype=float)
+index_value = 1000
 
-        # Calculate the raw index values for the quarter
-        quarter_data = data.loc[start:end]
-        quarter_index_raw = (quarter_data * shares).sum(axis=1)
+for i,date in enumerate(shareholding_pattern.index):
+    try:
+        start = date
+        end = shareholding_pattern.index[i+1] if i<len(shareholding_pattern.index)-1 else all_price.index[-1]
 
-        # Set or adjust divisor
-        if divisor is None:
-            divisor = quarter_index_raw.iloc[0] / base_value
-        else:
-            divisor = quarter_index_raw.iloc[0] / prev_index.iloc[-1]
+        weights = weights_per_quarter[date]
+        active_stocks = weights.index
 
-        # Calculate normalized index for this quarter
-        quarter_index = quarter_index_raw / divisor
-        index_values.loc[start:end] = quarter_index
+        sub_price = all_price.loc[start:end,active_stocks].dropna(how="all",axis=1)
+        normalized = sub_price/sub_price.iloc[0]
 
-        prev_index = quarter_index
+        segment_index = (normalized*weights).sum(axis=1)
+        segment_index = segment_index/segment_index.iloc[0] * index_value
 
-        print(f"✅ Rebalanced on {end.date()} | Divisor: {divisor:.4f}")
-
-    return index_values.ffill()
+        if not index_series.empty:
+            segment_index = segment_index * (index_series.iloc[-1]/segment_index.iloc[0])
+        index_series = pd.concat([index_series, segment_index])  
+        index_value = index_series.iloc[-1]
+    except Exception as e:
+        print(f"⚠️ Error at {date}: {e}")    
 
 
-# ============================================================
-# ===================== MAIN SCRIPT ==========================
-# ============================================================
+index_series = index_series[~index_series.index.duplicated(keep="last")]
 
-if __name__ == "__main__":
-    print("📊 Downloading stock data...")
+print("\n✅ Market Cap Weighted Index successfully created!")
+nifty = yf.download('^NSEI',start='2018-03-1')['Close']
+nifty = nifty[index_series.index[0]:]
+nifty = nifty/nifty.iloc[0]*1000
+import matplotlib.pyplot as plt
 
-    data = yf.download([s + '.NS' for s in nifty50_2018], start=START_DATE, auto_adjust=True)["Close"]
-    data = data.dropna(how="all")
-
-    print("⚙️ Building quarterly rebalanced index...")
-    custom_index = build_quarterly_index(data, base_value=BASE_VALUE)
-    print("\n✅ Index construction complete!\n")
-    print(custom_index.tail())
+plt.figure(figsize=(10,5))
+plt.plot(index_series, label="Custom Market-Cap Weighted Index")
+plt.plot(nifty,label='Index')
+plt.title("Quarterly Rebalanced Market Cap Index (Base 1000)")
+plt.xlabel("Date")
+plt.ylabel("Index Value")
+plt.legend()
+plt.show()
