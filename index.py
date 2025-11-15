@@ -13,7 +13,7 @@ start_date = shareholding_pattern.index.min() - pd.Timedelta(days=10)
 end_date = shareholding_pattern.index.max() +  pd.Timedelta(days=30)
 
 ticker = [s + '.NS' for s in stocks]
-all_price = yf.download(ticker,start=start_date,end=end_date,auto_adjust=True)['Close']
+all_price = yf.download(ticker,start=start_date,end=end_date,auto_adjust=False)['Close']
 all_price.columns = [c.replace(".NS",'') for c in all_price.columns]
 
 print("✅ Price data fetched successfully.")

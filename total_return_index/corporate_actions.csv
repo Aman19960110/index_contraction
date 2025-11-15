@@ -1,0 +1,57 @@
+,Unnamed: 0,SYMBOL,COMPANY NAME,SERIES,PURPOSE,FACE VALUE,EX-DATE,RECORD DATE,BOOK CLOSURE START DATE,BOOK CLOSURE END DATE,event_type,old_face_value,new_face_value,ratio
+0,19,APOLLOHOSP,Apollo Hospitals Enterprise Limited,EQ,Face Value Split From Rs.10/- To Rs.5/-,5,02-Sep-10,03-Sep-10,-,-,split,10.0,5.0,1:2
+1,9,AXISBANK,Axis Bank Limited,EQ,Face Value Split From Rs 10/- To Rs 2/- Per Share,2,28-Jul-14,30-Jul-14,-,-,split,10.0,2.0,1:5
+2,3,BAJAJFINSV,Bajaj Finserv Limited,EQ,Face Value Split (Sub-Division) - From Rs 5/- Per Share To Re 1/- Per Share,1,13-Sep-22,14-Sep-22,-,-,split,5.0,1.0,1:5
+3,1,BAJFINANCE,Bajaj Finance Limited,EQ,Face Value Split (Sub-Division) - From Rs 2/- Per Share To Re 1/- Per Share,1,16-Jun-25,16-Jun-25,-,-,split,2.0,1.0,1:2
+4,12,BAJFINANCE,Bajaj Finance Limited,EQ, Bonus 1:1/Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,1,08-Sep-16,10-Sep-16,-,-,split,10.0,2.0,1:5
+5,14,BRITANNIA,Britannia Industries Limited,EQ, Face Value Split (Sub-Division) - From Rs 2/- Per Share To Re 1/- Per Share,1,29-Nov-18,30-Nov-18,-,-,split,2.0,1.0,1:2
+6,1,DRREDDY,Dr. Reddy's Laboratories Limited,EQ,Face Value Split (Sub-Division) - From Rs 5/- Per Share To Re 1/- Per Share,1,28-Oct-24,28-Oct-24,-,-,split,5.0,1.0,1:5
+7,5,EICHERMOT,Eicher Motors Limited,EQ, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,1,24-Aug-20,25-Aug-20,-,-,split,10.0,1.0,1:10
+8,11,GRASIM,Grasim Industries Limited,EQ, Face Value Split From Rs 10 To Re 2,2,06-Oct-16,08-Oct-16,-,-,split,10.0,2.0,1:5
+9,7,HDFCBANK,HDFC Bank Limited,EQ, Face Value Split (Sub-Division) - From Rs 2 Per Share To Rs 1 Per Share,1,19-Sep-19,20-Sep-19,-,-,split,2.0,1.0,1:2
+10,17,HDFCBANK,HDFC Bank Limited,EQ,Face Value Split From Rs.10/- To Rs.2/-,1,14-Jul-11,16-Jul-11,-,-,split,10.0,2.0,1:5
+11,10,ICICIBANK,ICICI Bank Limited,EQ,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,2,04-Dec-14,05-Dec-14,-,-,split,10.0,2.0,1:5
+12,15,KOTAKBANK,Kotak Mahindra Bank Limited,EQ,Face Value Split From Rs.10/- To Rs.5/-,5,13-Sep-10,14-Sep-10,-,-,split,10.0,5.0,1:2
+13,6,NESTLEIND,Nestle India Limited,EQ,Face Value Split (Sub-Division) - From Rs10/- Per Share To Re 1/- Per Share,1,05-Jan-24,05-Jan-24,-,-,split,10.0,1.0,1:10
+14,9,SBIN,State Bank of India,EQ,Face Value Split Rs.10/- To Re.1/- Per Share,1,20-Nov-14,21-Nov-14,-,-,split,10.0,1.0,1:10
+15,3,SHRIRAMFIN,Shriram Finance Limited,EQ,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,2,10-Jan-25,10-Jan-25,-,-,split,10.0,2.0,1:5
+16,17,TATACONSUM,TATA CONSUMER PRODUCTS LIMITED,EQ,Face Value Split From Rs.10/- To Re.1/-,1,30-Jun-10,02-Jul-10,-,-,split,10.0,1.0,1:10
+17,15,TATAPOWER,Tata Power Company Limited,EQ,Face Value Split From Rs.10/- To Re.1/-,1,26-Sep-11,27-Sep-11,-,-,split,10.0,1.0,1:10
+18,3,TATASTEEL,Tata Steel Limited,EQ,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,1,28-Jul-22,29-Jul-22,-,-,split,10.0,1.0,1:10
+19,19,TECHM,Tech Mahindra Limited,EQ,Bonus 1:1 / Face Value Split - From Rs 10/- Per Share To Rs 5/- Per Share,5,19-Mar-15,20-Mar-15,-,-,split,10.0,5.0,1:2
+20,16,TITAN,Titan Company Limited,EQ,Bonus 1:1 / Face Value Split From Rs.10/- To Re.1/-,1,23-Jun-11,24-Jun-11,-,-,split,10.0,1.0,1:10
+21,2,YESBANK,Yes Bank Limited,EQ, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share ,2,21-Sep-17,22-Sep-17,-,-,split,10.0,2.0,1:5
+0,17,BAJAJ-AUTO,Bajaj Auto Limited,EQ,Bonus 1:1,10,08-Sep-10,10-Sep-10,-,-,bonus,,,1:01
+1,4,BAJAJFINSV,Bajaj Finserv Limited,EQ,Bonus 1:1,1,13-Sep-22,14-Sep-22,-,-,bonus,,,1:01
+2,0,BAJFINANCE,Bajaj Finance Limited,EQ,Bonus 4:1,1,16-Jun-25,16-Jun-25,-,-,bonus,,,4:01
+3,12,BAJFINANCE,Bajaj Finance Limited,EQ, Bonus 1:1/Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,1,08-Sep-16,10-Sep-16,-,-,bonus,,,1:01
+4,8,BEL,Bharat Electronics Limited,EQ,Bonus 2:1,1,15-Sep-22,16-Sep-22,-,-,bonus,,,2:01
+5,4,BPCL,Bharat Petroleum Corporation Limited,EQ,Bonus 1:1,10,21-Jun-24,22-Jun-24,-,-,bonus,,,1:01
+6,19,BPCL,Bharat Petroleum Corporation Limited,EQ, Bonus 1:2,10,13-Jul-17,15-Jul-17,-,-,bonus,,,1:02
+7,12,DIVISLAB,Divi's Laboratories Limited,EQ, Bonus 1:1,2,23-Sep-15,26-Sep-15,-,-,bonus,,,1:01
+8,19,DIVISLAB,Divi's Laboratories Limited,EQ,Bonus-1:1,2,30-Jul-09,01-Aug-09,-,-,bonus,,,1:01
+9,4,GAIL,GAIL (India) Limited,EQ,Bonus 1:2,10,06-Sep-22,07-Sep-22,-,-,bonus,,,1:02
+10,14,GAIL,GAIL (India) Limited,EQ, Bonus 1:1,10,09-Jul-19,10-Jul-19,-,-,bonus,,,1:01
+11,17,GAIL,GAIL (India) Limited,EQ, Bonus 1:3,10,27-Mar-18,29-Mar-18,-,-,bonus,,,1:03
+12,0,HDFCBANK,HDFC Bank Limited,EQ,Bonus 1:1,1,26-Aug-25,27-Aug-25,-,-,bonus,,,1:01
+13,3,HINDPETRO,Hindustan Petroleum Corporation Limited,EQ,Bonus 1:2,10,21-Jun-24,21-Jun-24,-,-,bonus,,,1:02
+14,12,HINDPETRO,Hindustan Petroleum Corporation Limited,EQ, Bonus 1:2/ Dividend - Rs 1.10 Per Share,10,11-Jul-17,12-Jul-17,-,-,bonus,,,1:02
+15,15,HINDPETRO,Hindustan Petroleum Corporation Limited,EQ, Bonus 2:1,10,14-Sep-16,15-Sep-16,-,-,bonus,,,2:01
+16,7,ICICIBANK,ICICI Bank Limited,EQ, Annual General Meeting/Dividend - Rs 2.50 Per Share/Bonus 1:10 (Revised),2,20-Jun-17,-,22-Jun-17,24-Jun-17,bonus,,,1:10
+17,17,INFY,Infosys Limited,EQ, Bonus 1:1,5,04-Sep-18,05-Sep-18,-,-,bonus,,,1:01
+18,5,IOC,Indian Oil Corporation Limited,EQ,Bonus 1:2,10,30-Jun-22,01-Jul-22,-,-,bonus,,,1:02
+19,17,IOC,Indian Oil Corporation Limited,EQ, Bonus 1:1,10,15-Mar-18,17-Mar-18,-,-,bonus,,,1:01
+20,15,ITC,ITC Limited,EQ, Bonus 1:2,1,01-Jul-16,04-Jul-16,-,-,bonus,,,1:02
+21,14,LT,Larsen & Toubro Limited,EQ, Bonus 1:2,2,13-Jul-17,14-Jul-17,-,-,bonus,,,1:02
+22,19,LT,Larsen & Toubro Limited,EQ,Bonus 1:2,2,11-Jul-13,13-Jul-13,-,-,bonus,,,1:02
+23,0,NESTLEIND,Nestle India Limited,EQ,Bonus 1:1,1,08-Aug-25,08-Aug-25,-,-,bonus,,,1:01
+24,19,NTPC,NTPC Limited,EQ, Bonus 1:5,10,19-Mar-19,20-Mar-19,-,-,bonus,,,1:05
+25,1,RELIANCE,Reliance Industries Limited,EQ,Bonus 1:1,10,28-Oct-24,28-Oct-24,-,-,bonus,,,1:01
+26,11,RELIANCE,Reliance Industries Limited,EQ, Bonus 1:1,10,07-Sep-17,09-Sep-17,-,-,bonus,,,1:01
+27,19,SIEMENS,Siemens Limited,EQ,Bonus 1:1,2,29-Feb-08,03-Mar-08,-,-,bonus,,,1:01
+28,19,TECHM,Tech Mahindra Limited,EQ,Bonus 1:1 / Face Value Split - From Rs 10/- Per Share To Rs 5/- Per Share,5,19-Mar-15,20-Mar-15,-,-,bonus,,,1:01
+29,16,TITAN,Titan Company Limited,EQ,Bonus 1:1 / Face Value Split From Rs.10/- To Re.1/-,1,23-Jun-11,24-Jun-11,-,-,bonus,,,1:01
+30,7,UPL,UPL Limited,EQ, Bonus 1:2,2,02-Jul-19,03-Jul-19,-,-,bonus,,,1:02
+31,2,WIPRO,Wipro Limited,EQ,Bonus 1:1,2,03-Dec-24,03-Dec-24,-,-,bonus,,,1:01
+32,17,WIPRO,Wipro Limited,EQ, Bonus 1:3,2,06-Mar-19,07-Mar-19,-,-,bonus,,,1:03
+33,15,ZEEL,Zee Entertainment Enterprises Limited,EQ,Bonus 1:1,1,11-Nov-10,12-Nov-10,-,-,bonus,,,1:01
