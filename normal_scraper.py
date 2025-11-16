@@ -6,7 +6,7 @@ import glob
 logger = setup_logger('logs','log_files')
 
 
-files = glob.glob('links/*.csv')
+files = glob.glob('link2/*.csv')
 logger.debug(f'total files {len(files)}')
 logger.debug(f'{files[:5]}')
 
@@ -39,4 +39,4 @@ for _,file in enumerate(files):
 logger.info('all data collected')
 
 final_df = pd.DataFrame(collected_data)
-final_df.to_csv('shareholiding_pattern.csv')
+final_df.to_csv('shareholiding_pattern_02.csv')
