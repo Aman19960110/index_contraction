@@ -92,7 +92,6 @@ price_w = (
 
 shares_w = (
     shares.pivot(index='date', columns='ticker', values='total_shares')
-          .reindex(all_dates)
           .ffill()
 )
 
