@@ -9,7 +9,7 @@ BASE_INDEX_VALUE = 1000.0
 REBALANCE_FREQ = "QE"
 
 #flags
-make_csv = True
+make_csv = False
 
 price = pd.read_csv('price_data.csv',parse_dates=['date'])
 price.drop_duplicates(subset=['date','ticker'],inplace=True)
